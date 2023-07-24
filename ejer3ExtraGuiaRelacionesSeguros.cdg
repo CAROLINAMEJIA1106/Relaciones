@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ejer3ExtraGuiaRelacionesSeguros">
+  <ClassDiagramComponents>
+    <Class name="GestionIntegralClientes" package="Entidad" visibility="public" xPosition="71.0" yPosition="33.0">
+      <Fields>
+        <Field name="nombreCompleto" type="String" visibility="private"/>
+        <Field name="documento" type="int" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="domicilio" type="String" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GestionDeVehiculos" package="Entidad" visibility="public" xPosition="331.0" yPosition="14.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="int" visibility="private"/>
+        <Field name="anio" type="int" visibility="private"/>
+        <Field name="numeroMotor" type="String" visibility="private"/>
+        <Field name="chasis" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="tipoDeVehiculo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GestionDePolizas" package="Service" visibility="public" xPosition="56.0" yPosition="321.0">
+      <Fields>
+        <Field name="cliente" type="GestionIntegralClientes" visibility="private"/>
+        <Field name="vehiculo" type="GestionDeVehiculos" visibility="private"/>
+        <Field name="numeroPoliza" type="int" visibility="private"/>
+        <Field name="fechaInicioPoliza" type="Date" visibility="private"/>
+        <Field name="fechaFinPoliza" type="Date" visibility="private"/>
+        <Field name="cantidadCuotas" type="int" visibility="private"/>
+        <Field name="formaDePago" type="String" visibility="private"/>
+        <Field name="montoTotalAsegurado" type="int" visibility="private"/>
+        <Field name="Granizo" type="boolean" visibility="private"/>
+        <Field name="montoMaximoGranizo" type="int" visibility="private"/>
+        <Field name="tipoDeCobertura" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GestionDeCuotas" package="Service" visibility="public" xPosition="381.0" yPosition="332.0">
+      <Fields>
+        <Field name="poliza" type="GestionDePolizas" visibility="private"/>
+        <Field name="numeroDeCuota" type="int" visibility="private"/>
+        <Field name="montoTotalDeCuota" type="double" visibility="private"/>
+        <Field name="pagada" type="boolean" visibility="private"/>
+        <Field name="fechaVencimiento" type="Date" visibility="private"/>
+        <Field name="formaDePago" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene cliente" source="Service.GestionDePolizas" target="Entidad.GestionIntegralClientes" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene poliza" source="Service.GestionDeCuotas" target="Service.GestionDePolizas" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene vehiculo" source="Service.GestionDePolizas" target="Entidad.GestionDeVehiculos" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
